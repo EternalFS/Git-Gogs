@@ -1,0 +1,20 @@
+---
+
+- name: create database using Gogs script
+  ansible.builtin.shell: mysql -u root <mysql.sql
+  args:
+    chdir: /var/gogs/scripts
+    creates: /var/lib/mysql/gogs
+
+- name: Template database user
+  ansible.builtin.template:
+    src: new_user.sql.j2
+    dest: /var/gogs/scripts/new_user.sql
+  become: true
+
+- name: create user for database
+  ansible.builtin.shell: mysql -u root <new_user.sql
+  args:
+    chdir: /var/gogs/scripts
+    creates: /var/gogs/script/user_created.log
+  notify: log user created

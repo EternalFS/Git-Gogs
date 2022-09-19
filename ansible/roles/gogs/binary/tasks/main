@@ -1,0 +1,25 @@
+---
+
+- name: set download based on Architecture
+  set_fact:
+    gogs_dl: "gogs_{{ binary_version }}_linux_amd64.tar.gz"
+  when: ansible_architecture == "x86_64"
+
+- name: download Binary for x86_64
+  ansible.builtin.get_url:
+    url: "https://dl.gogs.io/{{ binary_version }}/gogs_{{ binary_version }}_linux_amd64.tar.gz"
+    dest: "/tmp/{{ gogs_dl }}"
+
+- name: Unarchive gogs.tar.gz
+  ansible.builtin.unarchive:
+    src: "/tmp/{{ gogs_dl }}"
+    dest: /var/
+    remote_src: yes
+  become: true
+
+- name: Create symbolic link in path
+  ansible.builtin.file:
+    src: /var/gogs/gogs
+    dest: /usr/local/bin/gogs
+    state: link
+  become: true

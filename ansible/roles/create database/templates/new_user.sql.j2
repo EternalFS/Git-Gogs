@@ -1,0 +1,7 @@
+CREATE USER 'gogs'@'localhost' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON gogs.* TO 'gogs'@'localhost';
+
+FLUSH PRIVILEGES;
+
+#source: https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql

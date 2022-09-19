@@ -1,6 +1,11 @@
 ---
 - hosts: node
+  vars:
+    binary_version: "0.12.10"
 
   roles:
-  - db/mysql
-  - git
+  # - db/mysql
+  # - git
+  # - ssh server
+  # - gogs/binary
+  - create database

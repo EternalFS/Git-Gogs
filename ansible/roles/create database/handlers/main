@@ -1,0 +1,9 @@
+---
+
+# craete an empty file so sql won't rerun
+- name: log user created
+  copy:
+    content: "user gogs created and given all permissions on Database: gogs"
+    dest: /var/gogs/script/user_created.log
+    force: no
+  become: true
