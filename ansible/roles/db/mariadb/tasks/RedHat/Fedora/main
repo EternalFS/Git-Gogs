@@ -1,0 +1,7 @@
+---
+- name: Install
+  ansible.builtin.dnf:
+    name:
+      - mariadb-server
+    state: latest
+  become: true

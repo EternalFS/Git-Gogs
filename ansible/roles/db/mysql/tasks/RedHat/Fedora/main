@@ -1,0 +1,14 @@
+---
+- name: Install mysql community edition
+  ansible.builtin.dnf:
+    name:
+      - community-mysql-server
+    state: latest
+  become: true
+
+- name: Enable mysql service
+  ansible.builtin.systemd:
+    name: mysqld
+    state: started
+    enabled: yes
+  become: true
