@@ -16,5 +16,5 @@
   ansible.builtin.shell: mysql -u root <new_user.sql
   args:
     chdir: /var/gogs/scripts
-    creates: /var/gogs/script/user_created.log
+    creates: /var/gogs/scripts/user_created.log
   notify: log user created

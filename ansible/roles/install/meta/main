@@ -1,0 +1,7 @@
+---
+dependencies:
+  - db/mysql
+  - depend/git
+  - depend/ssh server
+  - gogs/binary
+  - gogs/create database

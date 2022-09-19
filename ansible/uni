@@ -4,8 +4,4 @@
     binary_version: "0.12.10"
 
   roles:
-  - db/mysql
-  - depend/git
-  - depend/ssh server
-  - gogs/binary
-  - create database
+  - install
