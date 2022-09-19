@@ -4,6 +4,6 @@
 - name: log user created
   copy:
     content: "user gogs created and given all permissions on Database: gogs"
-    dest: /var/gogs/script/user_created.log
+    dest: /var/gogs/scripts/user_created.log
     force: no
   become: true
